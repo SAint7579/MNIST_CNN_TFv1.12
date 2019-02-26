@@ -34,6 +34,7 @@ with tf.Session() as sess:
         #Adding the figure to graph
         plt.imshow(mnist.test.images[ind-1:ind].reshape(28,28),cmap= 'gist_gray')
         pred = (sess.run(tf.argmax(softmax[0]),feed_dict = {x: mnist.test.images[ind-1:ind], y_true: mnist.test.labels[ind-1:ind], hold_prob:1.0}))
-        #Displaying predicted and actual value
+        #Displaying predicted and actual values
         print("Predicted Value: "+ str(pred) + "\tActual Value: "+str(list(mnist.test.labels[ind-1:ind][0]).index(1)))
+    #Showing the graph
     plt.show()
